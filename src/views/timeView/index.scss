@@ -1,0 +1,64 @@
+.timeView{
+  padding: 0 32px;
+  margin-top: 180px;
+}
+
+.title-top{
+  height: 126px;
+  display: flex;
+  flex-direction: row-reverse;
+  border-bottom: 2px solid #ddd;
+  .detail-item{
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+  .item-middle{
+    font-size: 28px;
+    color: #fff;
+  }
+  .item-right{
+    img{
+      width: 10px;
+      // vertical-align: middle;
+      margin-left: 18px;
+    }
+    
+  }
+}
+.year-title{
+  height: 118px;
+  padding: 24px  0;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 48px;
+  color: #000;
+}
+.month-item{
+  display: flex;
+  padding:0 20px 44px 0;
+}
+.month-title{
+  width: 148px;
+  min-width: 148px;
+  color: #000;
+  font-size: 44px;
+}
+.small{
+  font-size: 40px;
+}
+.day-pic{
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+.img-item{
+  margin: 0 16px 16px 0px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+  video {
+    pointer-events: none;
+  }
+}

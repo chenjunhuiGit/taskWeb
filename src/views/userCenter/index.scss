@@ -1,0 +1,179 @@
+$bgc-txt:#135df1;
+.userCenterIndex{
+    padding: 120px 32px 34px 32px;
+    .user-top{
+        display: flex;
+        align-items: center;
+        padding: 0 36px 48px 36px;
+    }
+    .bgc-top{
+        background: #2280FF;
+        border-radius: 32px;
+        padding-top: 48px;
+    }
+    .user-pic{
+        position: relative;
+        .userImg{
+            border-radius: 50%;
+            width: 126px;
+            height: 126px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            border: 4px solid rgba(255,255,255,.7);
+            img{
+                width: 100%;
+            }
+        }
+        .edit-pic{
+            position: absolute;
+            left: 90px;
+            bottom: 12px;
+            width: 36px;
+            height: 36px;
+            background-color: $bgc-txt;
+            text-align: center;
+            line-height: 32px;
+            border-radius: 50%;
+            img{
+                width: 18px;
+                vertical-align: middle;
+            }
+        }
+    }
+    .user-name{
+        color: #fff;
+        font-size: 36px;
+        font-weight: 700;
+        margin-left: 20px;
+        flex: 1;
+        .name{
+            min-height: 42px;
+        }
+        .user-position{
+            position: relative;
+            margin-top: 14px;
+            height: 32px;
+            .position-n{
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin-left: 16px;
+                height: 32px;
+                line-height: 24px;
+                box-sizing: border-box;
+                font-size: 18px;
+                border: 4px solid #9ed5fc;
+                background-color: #00050c;
+                color: #9ed5fc;
+                border-left: none;
+                border-radius: 0 14px 0 0;
+                padding:  2px 12px 2px 20px;
+            }
+            .position-d3{
+                border-color: #bba1e8;
+                background-color: #2d1b59;
+                color: #bba1e8;
+            }
+            .position-d4{
+                border-color: #f9df9f;
+                background-color: #362e1a;
+                color: #f9df9f;
+            }
+            .position-d5{
+                border-color: #649bff;
+                background-color: #000;
+                color: #649bff;
+            }
+            img{
+                position: absolute;
+                height: 32px;
+                width: 32px;
+                top: 0px;
+                left: 0;
+                vertical-align: middle;
+            }
+            // &::before{
+            //     content: '';
+            //     display: block;
+            //     width: 30px;
+            //     height: 32px;
+            //     background: url('') no-repeat;
+            //     background-size: 100% 100%;
+                
+            //     left: -16px;
+            //     top: -2px;
+            // }
+        }
+    }
+    .icon-right{
+        height: 32px;
+        margin-left: auto;
+    }
+    .user-detail{
+        background-color: #fff;
+        border-radius: 24px;
+        padding: 0 40px 0 32px;
+        margin-bottom: 40px;
+        .detail-item{
+            display: flex;
+            height: 114px;
+            box-sizing: border-box;
+            align-items: center;
+            &:last-child .item-middle{
+                border-bottom: none;
+            }
+        }
+        .item-left{
+            width: 50px;
+            height: 50px;
+            margin-right: 24px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            img{
+                width: 40px;
+            }
+        }
+        .item-middle{
+            border-bottom: 2px solid #ddd;
+            height: 100%;
+            line-height: 114px;
+            flex: 1;
+            position: relative;
+            font-size: 28px;
+            color: #111;
+            font-weight: 600;
+        }
+        .item-right{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            .item-tip{
+                color: #135df1;
+                font-size: 26px;
+            }
+            .email-tip{
+                color: #9bA5B8;
+                // color: #686b82;//紫色
+                // color: #acb1b9;//黑色
+            }
+            img{
+                width: 30px;
+                vertical-align: middle;
+            }
+        }
+    }
+    .loginOutBtn{
+        text-align: center;
+        font-size: 32px;
+        color: #135df1;
+        height: 112px;
+        line-height: 112px;
+        border-radius: 56px;
+        background-color: #fff;
+        box-sizing: border-box;
+        font-weight: bold;
+    }
+}

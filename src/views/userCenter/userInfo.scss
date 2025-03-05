@@ -1,0 +1,118 @@
+// $bgc-txt:#135df1;
+.userInfo{
+    padding: 120px 0 34px;
+    :deep(.van-uploader){
+        margin-left: auto;
+    }
+    .userImage{
+        :deep(.van-field__label){
+            display: flex;
+            align-items: center;
+        }
+        :deep(label){
+            // margin-top: auto;
+        }
+        :deep(.van-uploader__preview-image){
+            --van-uploader-size:120px;
+        }
+        :deep(.van-image__img),:deep(.van-uploader__upload){
+            border-radius: 50%;
+            --van-uploader-size:120px;
+        }
+    }
+   .user-detail{
+        margin-top: 40px;
+    }
+    :deep(.van-cell){
+        padding:30px 26px;
+        font-size: 28px;
+    }
+    :deep(.van-icon__image){
+        width: 42px;
+        height: 42px;
+    }
+    .t-btn{
+       border: 2px solid #458BFF;
+       border-radius: 28px;
+       background: #EBF2FF;
+       color: #458BFF;
+       font-size: 36px;
+       padding: 8px 22px;
+   }
+   .btnbox{
+        padding:  var(--van-cell-group-inset-padding);
+        margin: 24px 0 32px;
+   }
+    .dialog-body{
+        padding: 0 0px 0px 0px;
+        position: relative;
+        
+        .icon-close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: center;
+            height: 80px;
+            width: 80px;
+            line-height: 80px;
+            color: #fff;
+            font-size: 24px;
+        }
+        .dialog-content{
+            max-height: 60vh;
+            overflow-y: auto;
+            border-radius: 24px;
+        }
+        :deep(.van-cell){
+           padding: var(--van-cell-vertical-padding) var(--van-cell-horizontal-padding);
+        //    font-size: 28px;
+        }            
+        .dialog-title{
+            padding: 20px 60px 20px 60px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 4px; 
+        }
+        .dialog-item{
+            padding: 10px 32px;
+            background-color: #fff;
+            border-radius: 24px;
+            font-size: 28px;
+            font-weight: 400;
+            padding: 36px 32px 32px 32px;
+            margin-bottom: 10px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            i{
+                font-weight: 700;
+                font-style: normal;
+            }
+        }
+        .dialog-name{
+            margin-bottom:28px;
+            font-size: 32px;
+            font-weight: 500;
+            color: #283F65;
+            border-bottom: 4px solid #438cff;
+            display: inline-block;
+            padding: 0 0 2px 0;
+        }
+        .dialog-text{
+            line-height: 42px;
+            color: #283f56;                
+            :deep(i){
+                font-style: normal;
+                font-weight: 600;
+            }
+        }
+    }
+    .textarea {
+        :deep(textarea){
+            line-height: 36px;
+            min-height: auto;
+        }
+    }
+}
