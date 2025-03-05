@@ -1,0 +1,70 @@
+# This file is a template, and might need editing before it works on your project.
+# You can copy and paste this template into a new `.gitlab-ci.yml` file.
+# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
+#
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Nodejs.gitlab-ci.yml
+
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/node/tags/
+image:
+  name: m.daocloud.io/docker.io/library/node
+  pull_policy: if-not-present
+
+# This folder is cached between builds
+# https://docs.gitlab.com/ee/ci/yaml/index.html#cache
+cache:
+  paths:
+    - node_modules/
+  policy: pull-push  # 允许从缓存中提取和更新
+variables:
+  remoteAddr: "dfadmin@192.168.3.100"
+  remoteDir: "~/admin-web-temp/task_web_cexp"
+  server_task_ip: "192.168.3.100"
+  remoteAddr_prod: "root@107.167.24.103"
+  remoteDir_prod: "/root/task/nginx/data/task"
+  server_task_ip_prod: "107.167.24.103"
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - deploy
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  when: manual  # 设置为手动触发
+  script:
+    - npm config set registry https://registry.npmmirror.com
+    - rm -rf /builds/captcha/task-web/node_modules/@esbuild
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist
+    expire_in: 1 week  # 设置文件保留时间
+deploy-dev:       # This job runs in the build stage, which runs first.
+  stage: deploy
+  when: manual  # 设置为手动触发
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$PRIVATE_KEY"| tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - ssh-keyscan $server_task_ip >> ~/.ssh/known_hosts
+  script:
+    - scp -r ./dist/* $remoteAddr:$remoteDir
+    - echo "发布完成"
+  dependencies:
+    - build-job
+deploy-prod:       # This job runs in the build stage, which runs first.
+  stage: deploy
+  when: manual  # 设置为手动触发
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - ssh-keyscan $server_task_ip_prod >> ~/.ssh/known_hosts
+  script:
+    - ssh $remoteAddr_prod "mkdir -p $remoteDir_prod"
+    - scp -r ./dist/* $remoteAddr_prod:$remoteDir_prod
+    - echo "发布完成"
+  dependencies:
+    - build-job

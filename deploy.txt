@@ -1,0 +1,1 @@
+scp ./dist.zip root@107.167.24.103:~/task/nginx/data/
